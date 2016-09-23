@@ -3,7 +3,7 @@ Contributors: metaloha
 Tags: dropdown, drop-down, select, shortcode
 Requires at least: 4.0
 Tested up to: 4.6.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -99,6 +99,10 @@ You'll notice below that the second option will be displayed by default for you.
 [dropdown-content value="option3"]Some different content for the second third option.[/dropdown-content]
 
 == Changelog ==
+
+= v1.0.2 2016/09/23 =
+
+* fixed content block custom event delegation
 
 = v1.0.1 2016/09/23 =
 
