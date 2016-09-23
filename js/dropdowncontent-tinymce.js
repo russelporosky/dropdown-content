@@ -55,7 +55,7 @@
 				author : 'Metaloha',
 				authorurl : 'https://metaloha.com',
 				infourl : 'https://github.com/metaloha/dropdown-content',
-				version : "1.0.1"
+				version : "1.0.2"
 			};
 		}
 	});
