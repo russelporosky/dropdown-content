@@ -1,0 +1,7 @@
+/* Content box */
+.dropdowncontent-content {
+	display: none;
+}
+.dropdowncontent-content-visible {
+	display: inherit;
+}
