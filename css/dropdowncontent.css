@@ -2,6 +2,6 @@
 .dropdowncontent-content {
 	display: none;
 }
-.dropdowncontent-content-visible {
+.dropdowncontent-content-selected {
 	display: inherit;
 }

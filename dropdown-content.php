@@ -141,7 +141,7 @@ class DropdownContent {
 		$class = explode( ' ', trim( $atts['class'] ) );
 		$class[] = 'dropdowncontent-content';
 		if ( $this->default_item === $atts['value'] ) {
-			$class[] = 'dropdowncontent-content-visible';
+			$class[] = 'dropdowncontent-content-selected';
 		}
 		$class = implode( ' ', $class );
 

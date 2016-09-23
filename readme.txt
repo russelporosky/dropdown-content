@@ -1,9 +1,11 @@
 === Dropdown Content ===
-Contributors: russelporosky
+Contributors: metaloha
 Tags: dropdown, drop-down, select, shortcode
 Requires at least: 4.0
 Tested up to: 4.6.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
+License: MIT
+License URI: https://opensource.org/licenses/MIT
 
 Allows different content to be displayed based on the value of an author-defined drop-down box.
 
@@ -19,6 +21,32 @@ The plugin is simple to install:
 1. Unzip it
 1. Upload `dropdown-content.zip` directory to your WordPress Plugin directory
 1. Go to the plugin management page and enable the plugin
+
+== Frequently Asked Questions ==
+
+= What is actually happening? =
+
+There is a tiny bit of Javascript that watches these generated dropdowns for the `change` event, and simply adds the class `dropdowncontent-content-selected` to the content block that has the same value as the selected option.
+
+= How do I override your CSS? =
+
+Only three classes are used: `dropdowncontent-dropdown` for the dropdown control itself and has no default styling, `dropdowncontent-content` which has a single rule (`display:none;`) for content blocks, and the `dropdowncontent-content-selected` class which has a single rule (`display:inherit;`) for selected content blocks. Feel free to override those styles however you like in your own stylesheets.
+
+= Can I style the dropdown box itself? =
+
+Absolutely! It is a normal `SELECT` box and can be modified by any CSS or Javascript you like. You can target the default `dropdowncontent-dropdown` class, any custom class you add to the shortcode, or the field name (which defaults to `dropdown-content` but can be modified by the shortcode).
+
+= What kind of content can be in the content blocks? =
+
+Anything! By default, though, since the blocks are given `display:none;` as their default rule, things like maps or other Javascript targets that require a visible container may not work quite as expected. To account for that, there are two custom jQuery events attached to elements with the `dropdowncontent-content` class and will fire in this order:
+
+1. `dropdown-content:unselect` will fire when a dropdown option is unselected and `$(this)` will refer to the previously selected content block; the previous `value` and `name` fields can be found with `$(this).attr('data-dropdowncontent-value')` and `$(this).attr('data-dropdowncontent-name')`
+2. `dropdown-content:select` will fire when a dropdown option is selected, and `$(this)` will refer to the newly selected content block; the current `value` and `name` fields can be found with `$(this).attr('data-dropdowncontent-value')` and `$(this).attr('data-dropdowncontent-name')`
+
+== Screenshots ==
+
+1. The `Test 3` option is currently selected
+2. Now the `Test 2` option has been selected and the content below the dropdown has changed
 
 == Usage ==
 
@@ -42,7 +70,7 @@ To add a content dropdown to a post, you can either select the Content Dropdown 
 
 == Example ==
 
-* Copy and paste the following content to see the plugin in action *
+*Copy and paste the following content to see the plugin in action*
 
 [dropdown]
 [dropdown-option]Select one...[/dropdown-option]
@@ -70,7 +98,16 @@ You'll notice below that the second option will be displayed by default for you.
 
 [dropdown-content value="option3"]Some different content for the second third option.[/dropdown-content]
 
-== Change Log ==
+== Changelog ==
+
+= v1.0.1 2016/09/23 =
+
+* updated documentation
+* added screenshots
+* added FAQ entries
+* added custom jQuery events to Javascript
+* now uses delegated listener in case dropdowns are hidden on page load or loaded via AJAX
+* removed references to "visible" in code and documentation, replaced with "select" instead
 
 = v1.0.0 2016/09/22 =
 
